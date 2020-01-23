@@ -126,11 +126,11 @@ function validatePassword() {
         return false;
     }
     // check that the password has at least a number and a capital letter
-    if (_password.search[/A-Z/i] === 0) {
+    if (!(_password.search[/A-Z/] === 0)) {
         return false;
     }
 
-    if (_password.search[/0-9/] === 0) {
+    if (!(_password.search[/0-9/] === 0)) {
         return false;
     }
 
