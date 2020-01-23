@@ -13,6 +13,13 @@ function validateForm(e){
 
     if (validateUsername() && validateEmail() && validatePassword() && validateFirstName() && validateLastName() && validatePhoneNumber()) {
         var _newUser = getUserName();   
+        /*
+        var _newUser = {
+            username: getUserName(),
+            email: getEmail(),
+            pass: getPassword(),
+        };*/
+
         // add code to update registeredUsers array with new user and call render function
         // TODO
         registeredUsers.push(_newUser);
@@ -28,6 +35,7 @@ function renderRegisteredUsers() {
     document.getElementById('registered-users').innerHTML = '';
     registeredUsers.forEach(function(registeredUser){
         var _newUser = document.createElement('li'); 
+        // var _newUser = document.createElement('li'['username', 'email', 'firstName', 'lastName', 'phoneNumber']); 
         _newUser.innerHTML = registeredUser;
         document.getElementById('registered-users').appendChild(_newUser);
     });
