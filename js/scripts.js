@@ -70,7 +70,7 @@ function validatePhoneNumber() {
     }
 
     var atPlusSign = _phoneNumber.indexOf('+');
-    if (atPlusSign === 0) {
+    if (atPlusSign > -1) {
         return false;
     }
     
@@ -125,12 +125,17 @@ function validatePassword() {
     if (_password.length < 8) {
         return false;
     }
-    // check that the password has at least a number and a capital letter
-    if (!(_password.search[/A-Z/] === 0)) {
+    
+    // check that the password has at least a number and a capital letter*/
+   
+    var capital = _password.search(/[A-Z]/);
+    var number = _password.search(/[0-9]/);
+        
+    if (capital == -1) {
         return false;
     }
 
-    if (!(_password.search[/0-9/] === 0)) {
+    if (number == -1) {
         return false;
     }
 
