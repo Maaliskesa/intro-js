@@ -11,8 +11,20 @@ function validateForm(e){
     console.log('last name: ' + validateLastName());
     console.log('phone number: ' + validatePhoneNumber());
 
-    if (validateUsername() && validateEmail() && validatePassword() && validateFirstName() && validateLastName() && validatePhoneNumber()) {
-        var _newUser = getUserName();   
+    if (validateUsername()
+        && validateEmail()
+        && validatePassword()
+        && validateFirstName()
+        && validateLastName()
+        && validatePhoneNumber()) {
+        var _newUser = {
+            username: getUserName(),
+            firstname: getFirstName(),
+            lastname: getLastName(),
+            phone: getPhoneNumber(),
+            email: getEmail(),
+            pass: getPassword(),
+        };  
         // add code to update registeredUsers array with new user and call render function
         // TODO
         registeredUsers.push(_newUser);
@@ -28,7 +40,11 @@ function renderRegisteredUsers() {
     document.getElementById('registered-users').innerHTML = '';
     registeredUsers.forEach(function(registeredUser){
         var _newUser = document.createElement('li'); 
-        _newUser.innerHTML = registeredUser;
+        _newUser.innerHTML = registeredUser.username + ', '
+            + registeredUser.firstname + ', '
+            + registeredUser.lastname + ', '
+            + registeredUser.phone + ', '
+            + registeredUser.email;
         document.getElementById('registered-users').appendChild(_newUser);
     });
 }
@@ -126,11 +142,27 @@ function validatePassword() {
         return false;
     }
     // check that the password has at least a number and a capital letter
-    if (!(_password.search[/A-Z/] === 0)) {
+
+    /* 
+
+    if (checkForCapitalLetter(_password)) {
         return false;
     }
 
-    if (!(_password.search[/0-9/] === 0)) {
+    if (checkForNumber(_password)) {
+        return false;
+    }
+
+    */
+    
+    var _capital = _password.search(/[A-Z]/);
+    var _number = _password.search(/[0-9]/);
+        
+    if (_capital == -1) {
+        return false;
+    }
+
+    if (_number == -1) {
         return false;
     }
 
