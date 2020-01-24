@@ -7,6 +7,12 @@ function calculate(order) {
         result = add(firstInput, secondInput);
     } else if (order === 'subtract') {
         result = subtract(firstInput, secondInput);
+    } else if (order === 'multiply') {
+        result = multiply(firstInput, secondInput);
+    } else if (order === 'divide') {
+        result = divide(firstInput, secondInput);
+    } else if (order === 'pi') {
+        result = 3.14;
     }
 
     document.getElementById('final-result').innerText = result;
@@ -17,13 +23,13 @@ function add(a, b){
 }
 
 function subtract(a, b) {
-
+    return a - b;
 }
 
 function multiply(a, b) {
-
+    return a * b;
 }
 
 function divide(a, b) {
-
+    return a / b;
 }
