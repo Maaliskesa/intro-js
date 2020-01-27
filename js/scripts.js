@@ -12,7 +12,15 @@ function calculate(order) {
     } else if (order === 'divide') {
         result = divide(firstInput, secondInput);
     } else if (order === 'pi') {
-        result = 3.14;
+        if (firstInput === 1 || '') {
+            result = 3.14;
+        } if (firstInput > 1) {
+            result = 2 * 3.14 * firstInput;
+        }
+    } else if (order === 'pow') {
+        result = Math.pow(firstInput, secondInput);
+    } else if (order === 'Sqrt') {
+        result = Math.sqrt(firstInput * firstInput + secondInput * secondInput)
     }
 
     document.getElementById('final-result').innerText = result;
