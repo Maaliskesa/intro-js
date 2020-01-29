@@ -16,9 +16,9 @@
     function getNext() {
         // TODO 
         // slide = 0 has been given above
-        /* get items' elements with index of slide, remove active class from it
-        slide++ to increase the valua of slide by one
-        get items element with index of slide, and active class to it*/
+        /* get items' elements with index of a slide, remove active class from it
+        slide++ to increase the value of the slide by one
+        get item's element with the index of the slide, and move active class to it */
         
         items[slide].classList.remove('active');
         if (slide === totalItems - 1) {
