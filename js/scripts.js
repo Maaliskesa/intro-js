@@ -6,11 +6,15 @@
 
     // Set event listeners
     function setEventListeners() {
-        var next = document.getElementsByClassName('slider__button--next')[0],
-        prev = document.getElementsByClassName('slider__button--prev')[0];
+        /*var next = document.getElementsByClassName('slider__button--next')[0];
+            prev = document.getElementsByClassName('slider__button--prev')[0];*/
+        var next = $('.slider__button--next')[0];
+        var prev = $('.slider__button--prev')[0];
 
-        next.addEventListener('click', getNext);
-        prev.addEventListener('click', getPrev);
+        /*next.addEventListener('click', getNext);
+        prev.addEventListener('click', getPrev);*/
+        $(next).on('click', getNext);
+        $(prev).on('click', getPrev);
     }
 
     function getNext() {
@@ -20,7 +24,9 @@
         slide++ to increase the value of the slide by one
         get item's element with the index of the slide, and move active class to it */
         
-        items[slide].classList.remove('active');
+        // items[slide].classList.remove('active');
+        //document.getElementsByClassName('slider__photo')[slide].classList.remove('active');
+        $('.slider__photo').eq(slide).removeClass('active');
         if (slide === totalItems - 1) {
             slide = 0;
         } else {
@@ -32,7 +38,8 @@
     function getPrev() {
         // TODO  
 
-        items[slide].classList.remove('active');
+        //items[slide].classList.remove('active');
+        $('.slider__photo').eq(slide).removeClass('active');
         if (slide === 0) {
             slide = 4;
         } else {
