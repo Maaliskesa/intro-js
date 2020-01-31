@@ -4,9 +4,50 @@
   <meta charset="UTF-8">
   <title>HPlus Sport</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrap.com/font-awesome/4.5.0/css/font-awesome.min.css">ß
+  <link rel="stylesheet" href="//maxcdn.bootstrap.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <script> 
+    $(document).ready(function () {
+      $('#logo_h')
+        .fadeTo("slow", 0.1)
+        .fadeTo("slow", 1)
+        .fadeTo("slow", 0.1)
+        .fadeTo("fast", 1)
+        .fadeTo("fast", 0.1)
+        .fadeTo("fast", 1);
+      $("#home").on('click', function () {
+        window.print();
+      });
+    });
+  </script>
+
+  <script> 
+    $(document).ready(function () {
+      $('[data-type="mineralwater"]').css(
+        'background-color', 'green'
+      )
+    });
+  </script>
+  
+  <script>
+    $(document).ready(function () {
+      $('[data-type="proteinbar"]').css(
+        'background-color', 'blue'
+      )
+    });  
+  </script>
+
+  <!--<script> 
+    $(document).ready(function () {
+      $('.card-text').css(
+        'font-weight', 'bold'
+      )
+    });
+  </script>-->
+  
 </head>
 <body>
 <a id="button"></a>
@@ -14,7 +55,7 @@
   <nav class="nav" role="navigation">
     <div class="container nav-elements">
       <div class="branding">
-        <a href="#home"><img src="images/hpluslogo.svg" alt="Logo - H Plus Sports"></a>
+        <a href="#home"><img id="logo_h" src="images/hpluslogo.svg" alt="Logo - H Plus Sports"></a>
       </div><!-- branding -->
       <ul class="navbar">
         <li><a href="#home">home</a></li>
@@ -29,6 +70,7 @@
     <h1 class="headline">Our Mission</h1>
     <p>We support and encourage <em>active and healthy</em> lifestyles, by offering <em>ethically sourced</em> and <em>eco-friendly</em> nutritional products for the <em>performance-driven</em> athlete.</p>
   </div><!-- container tagline -->
+  <a id="button_print">print</a>
 </header><!-- #home -->
 
 <section id="history" class="section">
@@ -217,6 +259,28 @@
   <p class="legal">H+ Sport is a fictitious brand created by lynda.com solely for the purpose of training. All products and people associated with H+ Sport are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
 </div><!-- container -->
 </footer><!-- footer -->
+<script
+src:"https://cdnjs.cloudfare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+><script>
+  jQuery(document).ready(function() {
+  
+  var btn = $('#button');
+
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+  });
+
+});
+</script>
 </body>
 </html>
