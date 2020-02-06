@@ -18,12 +18,12 @@ function validateForm(e){
         && validateLastName()
         && validatePhoneNumber()) {
         var _newUser = {
-            username: getUserName(),
-            firstname: getFirstName(),
-            lastname: getLastName(),
-            phone: getPhoneNumber(),
-            email: getEmail(),
-            pass: getPassword(),
+            username: get('username'),
+            firstname: get('firstName'),
+            lastname: get('lastName'),
+            phone: get('phoneNumber'),
+            email: get('email'),
+            pass: get('password'),
         };  
         // add code to update registeredUsers array with new user and call render function
         // TODO
@@ -54,28 +54,28 @@ function renderRegisteredUsers() {
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateUsername(){
-    var _userName = getUserName();
+    var _userName = get('username');
     
     return !checkSpace(_userName);
 }
 
 // validate submitted first name
 function validateFirstName() {
-    var _firstName = getFirstName();
+    var _firstName = get('firstName');
 
     return _firstName;
 }
 
 // validate submitted last name
 function validateLastName() {
-    var _lastName = getLastName();
+    var _lastName = get('lastName');
 
     return _lastName;
 }
 
 // validate submitted phone number
 function validatePhoneNumber() {
-    var _phoneNumber = getPhoneNumber();
+    var _phoneNumber = get('phoneNumber');
 
     if (isNaN(_phoneNumber)) {
         return false;
@@ -98,7 +98,7 @@ function validatePhoneNumber() {
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateEmail(){
-    var _email = getEmail();
+    var _email = get('email');
 
     if (checkSpace(_email) === true) {
         return false;
@@ -131,8 +131,8 @@ function validateEmail(){
  * @returns [Boolean] true when valid, false otherwise
  */
 function validatePassword() {
-    var _password = getPassword();
-    var _confirmPassword = getConfirmPassword();
+    var _password = get('password');
+    var _confirmPassword = get('password_confirm');
 
     if (_password !== _confirmPassword) {
         return false;
@@ -175,62 +175,9 @@ function checkSpace(sample) {
  * 
  * @returns [Boolean] true when valid, false otherwise
  */
-function getUserName() {
-    if (typeof(document.registration.username.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.username.value;
-    }   
-}
 
-function getEmail() {
-    // TODO
-    if (typeof(document.registration.email.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.email.value;
-    }
+function get(param) {
+    var _value = document.registration[param].value;
+    return typeof(_value) === 'undefined' ? ' ' : _value;
 }
-
-function getPassword() {
-    // TODO
-    if (typeof (document.registration.password.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.password.value;
-    }
-}
-
-function getConfirmPassword() {
-    // TODO
-    if (typeof (document.registration.password_confirm.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.password_confirm.value;   
-    }
-}
-function getFirstName() {
-    if (typeof (document.registration.firstName.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.firstName.value;
-    }
-}
-
-function getLastName() {
-    if (typeof (document.registration.lastName.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.lastName.value;
-    }
-}
-
-function getPhoneNumber() {
-    if (typeof (document.registration.phoneNumber.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.phoneNumber.value;
-    }
-}
-
 
