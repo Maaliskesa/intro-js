@@ -71,6 +71,14 @@
   </script>  
 
   <script>
+    var link = '//api.openweathermap.org/data/2.5/weather?q=helsinki&APPID=eb176a66e13d4a5d0d58a22e4a181d8f';
+    var callback = function(data) {
+      alert(JSON.stringify(data));
+    }
+    $.getJSON(link, callback);
+  </script>
+
+  <!-- <script>
     $(document).ready(function () {
       $('button_weather').click(function () {
         $.ajax({
@@ -80,7 +88,7 @@
         });
       });
     });
-  </script>
+  </script> -->
 
   <!-- <script>
     $('#MichaelLewiston').parent().prepend($("#MichaelLewiston"));
