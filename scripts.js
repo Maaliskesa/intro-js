@@ -11,20 +11,15 @@ function validateForm(e){
     console.log('last name: ' + validateLastName());
     console.log('phone number: ' + validatePhoneNumber());
 
-    if (validateUsername()
-        && validateEmail()
-        && validatePassword()
-        && validateFirstName()
-        && validateLastName()
-        && validatePhoneNumber()) {
+    if (validateUsername() && validateEmail() && validatePassword() && validateFirstName() && validateLastName() && validatePhoneNumber()) {
+        var _newUser = getUserName();   
+        /*
         var _newUser = {
             username: getUserName(),
-            firstname: getFirstName(),
-            lastname: getLastName(),
-            phone: getPhoneNumber(),
             email: getEmail(),
             pass: getPassword(),
-        };  
+        };*/
+
         // add code to update registeredUsers array with new user and call render function
         // TODO
         registeredUsers.push(_newUser);
@@ -40,11 +35,8 @@ function renderRegisteredUsers() {
     document.getElementById('registered-users').innerHTML = '';
     registeredUsers.forEach(function(registeredUser){
         var _newUser = document.createElement('li'); 
-        _newUser.innerHTML = registeredUser.username + ', '
-            + registeredUser.firstname + ', '
-            + registeredUser.lastname + ', '
-            + registeredUser.phone + ', '
-            + registeredUser.email;
+        // var _newUser = document.createElement('li'['username', 'email', 'firstName', 'lastName', 'phoneNumber']); 
+        _newUser.innerHTML = registeredUser;
         document.getElementById('registered-users').appendChild(_newUser);
     });
 }
