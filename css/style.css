@@ -52,6 +52,72 @@ body {
     color: #fff;
 }
 
+#button_weather {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 30px 500px 30px 30px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s;
+    z-index: 1000;
+}
+#button_weather:hover {
+    cursor: pointer;
+    background-color:#333;
+}
+
+#button_weather:active {
+    background-color:#555;
+}
+
+#button_weather::after {
+    content: "Helsinki today is -3.37 °C and it feels like -10.64 in Celcius";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#button_print {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 30px 100px 30px 30px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s;
+    z-index: 1000;
+}
+#button_print:hover {
+    cursor: pointer;
+    background-color:#333;
+}
+
+#button_print:active {
+    background-color:#555;
+}
+
+#button_print::after {
+    content: "Print";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 50px;
+    color: #fff;
+}
+
 .container {
     width: 80%;
     max-width: 1200px;

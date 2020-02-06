@@ -70,11 +70,23 @@
     });
   </script>  
 
+  <script>
+    $(document).ready(function () {
+      $('button_weather').click(function () {
+        $.ajax({
+          url: '//api.openweathermap.org/data/2.5/weather?q=helsinki&APPID=eb176a66e13d4a5d0d58a22e4a181d8f'
+        }).done(function (resp) {
+          console.log(resp);
+        });
+      });
+    });
+  </script>
+
   <!-- <script>
     $('#MichaelLewiston').parent().prepend($("#MichaelLewiston"));
-  </script> -->
+  </script> 
   
-  <!-- <script>
+  <script>
     $(document).ready(function() {
       $("#people").text('personnel');
     }
@@ -83,6 +95,8 @@
 </head>
 <body>
 <a id="button"></a>
+<a id="button_print"></a>
+<a id="button_weather"></a>
 <header id="home" class="header">
   <nav class="nav" role="navigation">
     <div class="container nav-elements">
@@ -102,7 +116,6 @@
     <h1 class="headline">Our Mission</h1>
     <p>We support and encourage <em>active and healthy</em> lifestyles, by offering <em>ethically sourced</em> and <em>eco-friendly</em> nutritional products for the <em>performance-driven</em> athlete.</p>
   </div><!-- container tagline -->
-  <a id="button_print">print</a>
 </header><!-- #home -->
 
 <section id="history" class="section">
