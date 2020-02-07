@@ -71,24 +71,20 @@
   </script>  
 
   <script>
-    var link = '//api.openweathermap.org/data/2.5/weather?q=helsinki&APPID=eb176a66e13d4a5d0d58a22e4a181d8f';
-    var callback = function(data) {
-      alert(JSON.stringify(data));
-    }
-    $.getJSON(link, callback);
+    $.ajax({
+      url: "//api.openweathermap.org/data/2.5/weather?q=helsinki&APPID=eb176a66e13d4a5d0d58a22e4a181d8f&units=metric"}).done(function (resp) {
+        console.log(resp);
+          $('#button_weather').text(
+          "Helsinki " 
+          + "is "
+          + resp.main.temp
+          + " °C "
+          + "and it feels like "
+          + resp.main.feels_like
+          + " °C"
+        );
+      });  
   </script>
-
-  <!-- <script>
-    $(document).ready(function () {
-      $('button_weather').click(function () {
-        $.ajax({
-          url: '//api.openweathermap.org/data/2.5/weather?q=helsinki&APPID=eb176a66e13d4a5d0d58a22e4a181d8f'
-        }).done(function (resp) {
-          console.log(resp);
-        });
-      });
-    });
-  </script> -->
 
   <!-- <script>
     $('#MichaelLewiston').parent().prepend($("#MichaelLewiston"));

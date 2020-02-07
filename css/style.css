@@ -76,7 +76,6 @@ body {
 }
 
 #button_weather::after {
-    content: "Helsinki today is -3.37 °C and it feels like -10.64 in Celcius";
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;
