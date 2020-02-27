@@ -343,7 +343,47 @@
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/main.js"></script>
+  
+  <script>
 
+    document.addEventListener("mouseleave", makeVisible);
+
+    function makeVisible() {
+      popup1.style.visibility = "visible";
+    }
+
+    var x_button = document.getElementsByClassName("close")[1];
+    x_button.addEventListener("click", Hide);
+
+    function Hide() {
+      popup1.style.visibility = "hidden";
+    }
+  
+    function email_subscribepopup() {
+      var eMail = document.getElementById("subscribe_pemail").value;
+      validateEmail(eMail);
+      if (validateEmail(eMail) === true) {
+        var popup2 = document.getElementById("popup2");
+        popup1.style.visibility = "hidden";
+        popup2.style.visibility = "visible";
+      }
+    }
+
+    function validateEmail(eMail) {
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(eMail)) {
+        return true;
+      } alert ("You have entered an invalid email address");
+        return false;
+    }
+
+    var x_button_2 = document.getElementsByClassName("close")[0];
+    x_button_2.addEventListener("click", HideToo);
+
+    function HideToo() {
+      popup2.style.visibility = "hidden";
+    }
+
+  </script>
 </body>
 
 </html>
