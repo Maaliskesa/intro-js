@@ -1,4 +1,25 @@
 $(function () {
+    var pathname = window.location.pathname;
+
+    if (pathname === "/detail.html") {
+        $(document).trigger("view:productPage");
+    }
+
+    if ($(".breadcrumb .breadcrumb-item").text().indexOf('Ladies') > -1) {
+        $(document).trigger("customer:Female");
+    } else {
+        $(document).trigger("customer:Male");
+    }
+
+    if ($(".breadcrumb .breadcrumb-item").text().indexOf('Shoes') > -1) {
+        $(document).trigger("view:Shoes");
+    } else {
+        $(document).trigger("view:Clothing");
+    }
+
+    // if (pathname === "/checkout4.html") {
+    //     $(".btn btn-primary").on("conversation")
+    // }
 
     $('.shop-detail-carousel').owlCarousel({
         items: 1,
